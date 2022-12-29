@@ -1,0 +1,6 @@
+@import url(./vendor/normalize.css);
+@import url(./assets/fonts/fonts.css);
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
