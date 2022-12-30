@@ -17,6 +17,13 @@ module.exports = {
   plugins,
   entry: path.resolve(__dirname, './src/index.js'),
   devtool: 'inline-source-map',
+  resolve: {
+    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    alias: {
+      react: path.join(__dirname, 'node_modules', 'react'),
+    },
+    extensions: ['*', '.js', '.jsx'],
+  },
   module: {
     rules: [
       {
@@ -56,9 +63,6 @@ module.exports = {
         },
       },
     ],
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
