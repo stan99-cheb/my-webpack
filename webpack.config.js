@@ -15,6 +15,8 @@ const plugins = [
 module.exports = {
   mode,
   plugins,
+  entry: path.resolve(__dirname, './src/index.js'),
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -47,7 +49,8 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        type: 'asset/resource',
         use: {
           loader: 'url-loader',
         },
@@ -57,10 +60,10 @@ module.exports = {
   resolve: {
     extensions: ['*', '.js', '.jsx'],
   },
-  entry: path.resolve(__dirname, './src/index.js'),
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'assets/[hash][ext][query]',
     clean: true,
   },
   devServer: {
